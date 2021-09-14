@@ -33,7 +33,7 @@ csdattrain <- do.call("rbind", list(csdat_raw[train1_index,],
 cstrain <- subset(csdattrain, select = 
    -c(contractcode,riskrating))
 csdattest <- do.call("rbind", list(csdat_raw[test1_index,], csdat_raw[test2_index,], csdat_raw[test3_index,], csdat_raw[test4_index,], csdat_raw[test5_index,]))
-cstest <- subset(csdattest, select = -riskrating)
+cstest <- subset(csdattest, select = -c(contractcode,riskrating))
 cor(cstrain)
 pr.out <- prcomp(cstrain, scale = TRUE, center = TRUE)
 pr.out
